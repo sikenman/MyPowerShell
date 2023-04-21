@@ -1,0 +1,15 @@
+How to use this CopyandRename.ps1 with Windows Task Scheduler
+-------------------------------------------------------------
+Steps:
+1.  Open text editor like Notepad, VS code or any other text editor.
+2.  Open Task Scheduler and click "Create Task...".
+3.  In General tab fill in appropriate [Name] and [Description].
+4.  Click on "Triggers" tab, click on New... button, then select "Daily" or any settings that is appropriate for you. Click OK.
+5.  Click on "Actions" tab, click on New... button.
+    * Under "Action" dropdown, select [Start a program].
+    * Enter the path to the PowerShell script in the "Program/script" field. For example, you could enter:
+      PowerShell.exe -File "C:\Users\YourName\Documents\move_and_rename.ps1"
+    * Click OK.
+6.  Click OK to finish and save the task.
+
+Created On: April 21, 2023
