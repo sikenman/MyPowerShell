@@ -6,12 +6,12 @@ Some of my helpful PowerShell Scripts
 - Can be used with Windows Task Scheduler to run it daily or for any other duration.
 
 ### Rename-Jpg01.ps1
-- Loading *[System.Drawing]* assembly to read image properties
+- Loading **[System.Drawing]** assembly to read image properties
 - Rename all *.jpg files in the given folder to the given format
   - pic-[Counter]-[MMM-yyyy] (widthxheight).jpg
   - e.g. pic-10-Apr-2023 (720x1280).jpg
 - Counter starts at 10 and increases by 1
-- *Get-ChildItem* was used with the *[-Filter]* parameter to get files having only the .jpg extension
+- **Get-ChildItem** was used with the **[-Filter]** parameter to get files having only the .jpg extension
   
 ```PowerShell
 # Load the System.Drawing assembly
@@ -31,12 +31,12 @@ Write-Output "$file >> $destination"
 ```
 
 ### Rename-Jpg02.ps1
-- Loading *[System.Drawing]* assembly to read image properties
+- Loading **[System.Drawing]** assembly to read image properties
 - Rename all *.jpg or *.jpeg files in the given folder to the given format
 - Made PowerShell function to generate UniqueID with default min-length of 6
   - pic-@[UniqueID]-[MMM-yyyy] (widthxheight).jpg
   - e.g. pic-@DGAYuwhY-Apr-2023 (720x1280).jpg
-- *Get-ChildItem* was used with the *[-Include]* parameter to get files having .jpg or .jpeg extensions
+- **Get-ChildItem** was used with the **[-Include]** parameter to get files having .jpg or .jpeg extensions
 
 ```PowerShell
 # Load the System.Drawing assembly
