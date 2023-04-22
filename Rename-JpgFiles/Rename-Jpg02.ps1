@@ -24,7 +24,7 @@ function Get-UniqueID {
 # Load the System.Drawing assembly
 Add-Type -AssemblyName System.Drawing
 
-# Set the folder path
+# Set the folder path, \* is necessary for -Include to work
 $folder = "C:\Users\YourName\Desktop\Zzz Jpg\*"
 
 # Get all the JPEG files in the folder
