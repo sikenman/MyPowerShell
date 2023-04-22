@@ -18,7 +18,7 @@ Some of my helpful PowerShell Scripts
 Add-Type -AssemblyName System.Drawing
 
 # Set the folder path
-$folder = "C:\Users\YourName\Desktop\Zzz Jpg"
+$folder = "C:\Users\YourName\Desktop\Target"
 
 # Get all the JPEG files in the folder
 $files = Get-ChildItem $folder -Filter *.jpg
@@ -30,9 +30,9 @@ $destination = "pic-$counter-$monthYear ($width" + "x$height).jpg"
 Write-Output "$file >> $destination"
 ```
 
-### Rename-Jpg02.ps1
+### Rename-Image01.ps1
 - Loading **[System.Drawing]** assembly to read image properties
-- Rename all *.jpg or *.jpeg files in the given folder to the given format
+- Rename all *.jpg or *.jpeg or *.png files in the given folder to the given format
 - Made PowerShell function to generate UniqueID with default min-length of 6
   - pic-@[UniqueID]-[MMM-yyyy] (widthxheight).jpg
   - e.g. pic-@DGAYuwhY-Apr-2023 (720x1280).jpg
@@ -43,8 +43,8 @@ Write-Output "$file >> $destination"
 Add-Type -AssemblyName System.Drawing
 
 # Set the folder path
-$folder = "C:\Users\YourName\Desktop\Zzz Jpg\*"
+$folder = "C:\Users\YourName\Desktop\Target\*"
 
-# Get all the JPEG files in the folder
-$files = Get-ChildItem $folder -Include *.jp*g
+# Get all the JPEG or PNG files in the folder
+$files = Get-ChildItem $folder -Include *.jp*g, *.png
 ```
