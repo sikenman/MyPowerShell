@@ -1,5 +1,5 @@
 # @Author: Siken M. Dongol
-# @Purpose: this ps has been made to rename all *.jpg or *.jpeg files 
+# @Purpose: this ps has been made to rename all *.jpg or *.jpeg or *.png files 
 #   in given folder to following format
 #   pic-@[UniqueID]-[MMM-yyyy] (widthxheight).jpg
 #   eg. pic-@DGAYuwhY-Apr-2023 (720x1280).jpg
@@ -25,17 +25,16 @@ function Get-UniqueID {
 Add-Type -AssemblyName System.Drawing
 
 # Set the folder path, \* is necessary for -Include to work
-$folder = "C:\Users\YourName\Desktop\Zzz Jpg\*"
+$folder = "C:\Users\YourName\Desktop\Zzz JpgPng\*"
 
-# Get all the JPEG files in the folder
-$files = Get-ChildItem $folder -Include *.jp*g
+# Get all the JPEG or PNG files in the folder
+$files = Get-ChildItem $folder -Include *.jp*g, *.png
 
 # Loop through each file
 $counter = 1;
 Write-Output ""
 foreach ($file in $files) {
-    # Write-Output $file.FullName
-    # eg. C:\Users\YourName\Desktop\Zzz Jpg\Piano-6.jpeg
+    # $file.FullName looks -> C:\Users\YourName\Desktop\Zzz JpgPng\Image01.jpeg
 
     # Load the image into a Bitmap object.
     $image = [System.Drawing.Image]::FromFile($file.FullName)
@@ -56,7 +55,8 @@ foreach ($file in $files) {
         
     # rename all the files
     $source = $file.FullName
-    $destination = "pic-@$uniqueID-$monthYear ($width" + "x$height).jpg"
+    $extension = $file.Extension
+    $destination = "pic-@$uniqueID-$monthYear ($width" + "x$height)$extension"
     Write-Output "$counter. $file >> $destination"
     
     Rename-Item -Path $source -NewName $destination
