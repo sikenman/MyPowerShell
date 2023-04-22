@@ -25,7 +25,7 @@ function Get-UniqueID {
 Add-Type -AssemblyName System.Drawing
 
 # Set the folder path, \* is necessary for -Include to work
-$folder = "C:\Users\YourName\Desktop\Zzz JpgPng\*"
+$folder = "C:\Users\YourName\TargetFolder\*"
 
 # Get all the JPEG or PNG files in the folder
 $files = Get-ChildItem $folder -Include *.jp*g, *.png
@@ -34,7 +34,7 @@ $files = Get-ChildItem $folder -Include *.jp*g, *.png
 $counter = 1;
 Write-Output ""
 foreach ($file in $files) {
-    # $file.FullName looks -> C:\Users\YourName\Desktop\Zzz JpgPng\Image01.jpeg
+    # $file.FullName looks -> C:\Users\YourName\TargetFolder\Image01.jpeg
 
     # Load the image into a Bitmap object.
     $image = [System.Drawing.Image]::FromFile($file.FullName)
@@ -55,11 +55,15 @@ foreach ($file in $files) {
         
     # rename all the files
     $source = $file.FullName
-    $extension = $file.Extension
+    $extension = $file.Extension.Tolower()
+    if ($extension -eq ".jpeg") {
+        $extension = ".jpg"
+    }
     $destination = "pic-@$uniqueID-$monthYear ($width" + "x$height)$extension"
-    Write-Output "$counter. $file >> $destination"
+    #Write-Output "$counter. $file >> $destination"
     
     Rename-Item -Path $source -NewName $destination
     
     $counter++
 }
+Write-Output "$counter files were renamed! Bye"

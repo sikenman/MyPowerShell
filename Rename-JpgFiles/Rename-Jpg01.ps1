@@ -8,7 +8,7 @@
 Add-Type -AssemblyName System.Drawing
 
 # Set the folder path
-$folder = "C:\Users\YourName\Desktop\Zzz JpgPng"
+$folder = "C:\Users\SikenD\Desktop\Zzz JpgPng"
 
 # Get all the JPEG files in the folder
 $files = Get-ChildItem $folder -Filter *.jpg
@@ -36,7 +36,7 @@ foreach ($file in $files) {
     # rename all the files
     $source = "$folder\$file"
     $destination = "pic-$counter-$monthYear ($width" + "x$height).jpg"
-    Write-Output "$file >> $destination"
+    # Write-Output "$file >> $destination"
 
     Rename-Item -Path $source -NewName $destination
     $counter++
