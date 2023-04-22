@@ -8,7 +8,7 @@
 Add-Type -AssemblyName System.Drawing
 
 # Set the folder path
-$folder = "C:\Users\SikenD\Desktop\Zzz JpgPng"
+$folder = "C:\Users\YourName\TargetFolder"
 
 # Get all the JPEG files in the folder
 $files = Get-ChildItem $folder -Filter *.jpg
