@@ -5,6 +5,6 @@
 # Note: Bing Wallpaper changes daily
 
 $date = Get-Date -Format "MM-dd-yyyy"
-$source = "C:\Users\SikenD\AppData\Roaming\Microsoft\Windows\Themes\TranscodedWallpaper"
-$destination = "C:\Users\SikenD\Desktop\Bing Daily\bing-wp-$date.jpg"
+$source = "C:\Users\YourName\AppData\Roaming\Microsoft\Windows\Themes\TranscodedWallpaper"
+$destination = "C:\Users\TargetFolder\Bing Daily\bing-wp-$date.jpg"
 Copy-Item $source $destination
